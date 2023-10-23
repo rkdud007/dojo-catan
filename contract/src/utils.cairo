@@ -104,6 +104,33 @@ fn concat(a: Span<u32>, b: Span<u32>) -> Array<u32> {
     ret
 }
 
+fn roll_dice(block_hash: felt252) -> u32 {
+    let mut block_hash_mod_100: u32 = block_hash.try_into().unwrap() % 100;
+    if block_hash_mod_100 >= 0 && block_hash_mod_100 < 3 {
+        return 2;
+    } else if block_hash_mod_100 >= 3 && block_hash_mod_100 < 6 {
+        return 12;
+    } else if block_hash_mod_100 >= 6 && block_hash_mod_100 < 12 {
+        return 3;
+    } else if block_hash_mod_100 >= 12 && block_hash_mod_100 < 18 {
+        return 11;
+    } else if block_hash_mod_100 >= 18 && block_hash_mod_100 < 26 {
+        return 4;
+    } else if block_hash_mod_100 >= 26 && block_hash_mod_100 < 34 {
+        return 10;
+    } else if block_hash_mod_100 >= 34 && block_hash_mod_100 < 45 {
+        return 5;
+    } else if block_hash_mod_100 >= 45 && block_hash_mod_100 < 56 {
+        return 9;
+    } else if block_hash_mod_100 >= 56 && block_hash_mod_100 < 70 {
+        return 6;
+    } else if block_hash_mod_100 >= 70 && block_hash_mod_100 < 84 {
+        return 8;
+    } else {
+        return 7;
+    }
+}
+
 fn shuffle_array(a: Array<u32>, block_hash: felt252) -> Array<u32> {
     let mut a_copy: Array<u32> = a.clone();
     let mut shuffled_a: Array<u32> = array![];
