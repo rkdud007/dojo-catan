@@ -30,6 +30,15 @@
 
 ### Model
 
+- Game : This will hold the overall game state and logic
+- Hexagon : This will hold each Hexagon map status like assigned dice index, hexagon id, hand type assigned randomly base on block hash of board generation.
+
+  <img alt="hexagon" align="right" width="120" src=".github/hex.png">
+
+- Corner : This will abstract hexagon map into x, y axis map to calculate distance between settlement/road/city. Also it used to place those on the map.
+  <img alt="corner" align="right" width="120" src=".github/corner.png">
+- Resource : This will handle each user's resource status. And count points so that can determine is game is end or not.
+
 #### Game
 
 - Order
